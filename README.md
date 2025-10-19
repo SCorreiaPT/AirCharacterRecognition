@@ -150,7 +150,8 @@ Thus, each augmented file remains fully traceable to its source and transformati
 #    (upload and run AirCharLogger.ino)
 # 2. Download and save IMU stream:
 python download_data.py
-# 3. Run data augmentation:
+# 3. Filter the data noise using the MatLab script
+# 4. Run data augmentation:
 python main.py
 
 All code and dataset formats are released under the Apache License 2.0
