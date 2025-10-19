@@ -1,4 +1,4 @@
-# Over the Air Character Recognition [AirChar IMU Data Acquisition and Augmentation]
+# Over the Air Character Recognition [AirChar IMU Data Acquisition, Filtering, and Augmentation]
 
 This repository contains the workflow used to **acquire**, **store**, and **augment** inertial data for the _AirChar_ project, focused on **handwritten character recognition in the air** using motion sensors.
 
