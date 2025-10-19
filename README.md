@@ -14,7 +14,7 @@ Data collection, storage, and preprocessing are divided into three main componen
 2. **`main.py`** – Python script to download serial data and save it into structured CSV files.  
 3. **`dataAug.py` / `main.py`** – Python modules for data augmentation through 3D vector rotations.
 
----
+/figures/
 
 ## 1. Data Acquisition
 
