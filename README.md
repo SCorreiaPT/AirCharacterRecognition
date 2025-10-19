@@ -76,7 +76,44 @@ A_s01v01n0001p0a0f0.csv
 └──────────────────── recorded character
 
 
-## 3. Data Augmentation
+### 3. Data Filtering (MATLAB)
+
+After collecting and saving the raw IMU data, a **preprocessing and filtering stage** is performed in **MATLAB** to smooth the signals and remove unwanted high-frequency noise.  
+This step is essential to ensure that the subsequent data augmentation is applied to clean and physically meaningful motion signals.
+
+The filtering is implemented through the MATLAB function [`AddFilter.m`](./MATLAB/AddFilter.m), which performs the following operations:
+
+1. **Reads the raw CSV file** from the `Samples/` directory.  
+   Each file contains a 17-line metadata header followed by the numeric IMU data starting on line 18.  
+   The sampling frequency is **100 Hz**, as defined by the acquisition system.
+
+2. **Applies a 4th-order low-pass Butterworth filter** with a cutoff frequency of **10 Hz**, using:
+   ```matlab
+   [b, a] = butter(4, 10 / (100 / 2));
+   filteredData = filtfilt(b, a, data);
+
+This configuration effectively removes high-frequency noise from both the acceleration and angular velocity channels while maintaining signal phase integrity.
+
+3. **Updates the metadata header** to indicate that filtering has been applied.
+The line:
+Preprocessing Filter: No
+is replaced by:
+Preprocessing Filter: Yes
+
+4. **Generates a new filtered file** in the Filtered/ directory.
+The filename is updated to reflect the filtering stage by replacing p0 with p1.
+Example:
+Samples/A_s01v01n0001p0a0f0.csv
+        ↓
+Filtered/A_s01v01n0001p1a0f0.csv
+
+5. **Optionally visualizes the signals** when the PLOT parameter is enabled:
+AddFilter('A_s01v01n0001p0a0f0.csv', 1);
+
+This command displays acceleration and angular velocity plots before and after filtering, allowing verification of filter performance.
+
+
+## 4. Data Augmentation
 
 To improve dataset diversity, a **data augmentation** step is applied using the scripts:
 
@@ -91,7 +128,7 @@ This results in **18 augmented versions** per original file, simulating differen
 ![Arduino setup](Figures/DataAugmentation_v1.png)
 
 
-## 🧾 4. Output Structure
+## 5. Output Structure
 
 Augmented files are stored in the folder `samplesAug/`.  
 Each one preserves the original metadata header, with the following automatic modifications:
@@ -105,7 +142,6 @@ A_s01v01n0001p0a0f0.csv → A_s01v01n0001p0ax+15f0.csv
 
 Thus, each augmented file remains fully traceable to its source and transformation parameters.
 
----
 
 ## Example Workflow
 
