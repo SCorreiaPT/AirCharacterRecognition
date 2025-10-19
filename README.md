@@ -57,6 +57,7 @@ Label;accX;accY;accZ;gyrX;gyrY;gyrZ
 
 ### File naming convention
 Each raw sample follows the structure:
+
 A_s01v01n0001p0a0f0.csv
 
 │ │ │ │ │ │ │
