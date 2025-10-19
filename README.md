@@ -14,7 +14,8 @@ Data collection, storage, and preprocessing are divided into three main componen
 2. **`main.py`** – Python script to download serial data and save it into structured CSV files.  
 3. **`dataAug.py` / `main.py`** – Python modules for data augmentation through 3D vector rotations.
 
-/figures/
+
+![Arduino setup](Figures/HandwritingStick.jpg)
 
 ## 1. Data Acquisition
 
@@ -26,7 +27,8 @@ The Arduino sketch [`AirCharLogger.ino`](./AirCharLogger.ino) configures the IMU
 Each record corresponds to a single IMU reading captured at **100 Hz**.  
 Data is sent via the **serial port** to a host computer.
 
----
+![Arduino setup](Figures/LogginVertical.jpg)
+
 
 ## 2. Data Download and Storage
 
@@ -86,7 +88,8 @@ Each dataset is augmented by applying **3D rotations** of the acceleration and g
 
 This results in **18 augmented versions** per original file, simulating different sensor orientations during motion capture.
 
----
+![Arduino setup](Figures/DataAugmentation_v1.png)
+
 
 ## 🧾 4. Output Structure
 
