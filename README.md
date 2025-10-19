@@ -60,19 +60,19 @@ Each raw sample follows the structure:
 
 A_s01v01n0001p0a0f0.csv
 
-│ │ │ │ │ │ │
+│  │  │   │  │ │ │
 
-│ │ │ │ │ │ └── fixed metadata
+│  │  │   │  │ │ └── fixed metadata
 
-│ │ │ │ │ └──── augmentation marker (a0)
+│  │  │   │  │ └──── augmentation marker (a0)
 
-│ │ │ │ └────── participant posture / position
+│  │  │   │  └────── participant posture / position
 
-│ │ │ └──────────── sample number
+│  │  │   └──────────── sample number
 
-│ │ └─────────────── version number
+│  │  └─────────────── version number
 
-│ └────────────────── subject ID
+│  └────────────────── subject ID
 
 └──────────────────── recorded character
 
